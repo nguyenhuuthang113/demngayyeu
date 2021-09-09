@@ -8,7 +8,7 @@
       <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
       <title>Been Together</title>
 </head>
-<body>
+<body onkeydown="return false">
      <div id="wrapper">
            <h1>LOVE DAYS</h1>
 
@@ -26,7 +26,7 @@
 						<p class='born'>03.06.2003</p>
                   </div>
                   <div id="heart">
-                        ❤<anni>...</anni>
+                        <anni>...</anni>
                   </div>
                   <div class="two">
                         <img src="img/main2.jpg" class="avt">
@@ -38,9 +38,67 @@
             <div id="music">
                   <audio loop autoplay controls>Your browser does not support the audio element.</audio>
             </div>
-            <footer>Thank you for your love ^^</footer>
+            <footer>Thank you for your love ❤</footer>
       </div> 
       
       <script src="app.js"></script>
 </body>
+	<style type='text/css'>
+    body {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+    }
+</style>
+	
+	<script type='text/javascript'>
+    //<![CDATA[
+    // JavaScript Document
+    var message = "NoRightClicking";
+    function defeatIE() {
+        if (document.all) {
+            (message);
+            return false;
+        }
+    }
+    function defeatNS(e) {
+        if (document.layers || (document.getElementById && !document.all)) {
+            if (e.which == 2 || e.which == 3) {
+                (message);
+                return false;
+            }
+        }
+    }
+    if (document.layers) {
+        document.captureEvents(Event.MOUSEDOWN);
+        document.onmousedown = defeatNS;
+    } else {
+        document.onmouseup = defeatNS;
+        document.oncontextmenu = defeatIE;
+    }
+    document.oncontextmenu = new Function("return false")
+        //]]>
+</script>
+	
+	<script type='text/javascript'>
+    checkCtrl = false $('*').keydown(function(e) {
+        if (e.keyCode == '17') {
+            checkCtrl = false
+        }
+    }).keyup(function(ev) {
+        if (ev.keyCode == '17') {
+            checkCtrl = false
+        }
+    }).keydown(function(event) {
+        if (checkCtrl) {
+            if (event.keyCode == '85') {
+                return false;
+            }
+        }
+    })
+</script>
+	
 </html>
